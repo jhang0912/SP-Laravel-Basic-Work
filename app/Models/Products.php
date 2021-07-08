@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+
+use function PHPUnit\Framework\isNull;
 
 class Products extends Model
 {
@@ -29,15 +32,28 @@ class Products extends Model
         return $this->hasMany(Cart_items::class);
     }
 
+    public function images()
+    {
+        return $this->morphMany(Images::class, 'source');
+    }
+
     /* function */
     static function checkProductQuantity($product)
     {
         $quantity = Products::find($product->id)->quantity; //取得商品庫存數量
 
-        if ($product->quantity > $quantity) {//比對選購數量否超過庫存數量
+        if ($product->quantity > $quantity) { //比對選購數量否超過庫存數量
             return false;
         } else {
             return true;
+        }
+    }
+
+    public function getImageUrlAttribute()
+    {
+        $images = $this->images->last();
+        if (isset($images)) {
+            return Storage::url($images->path);
         }
     }
 }
