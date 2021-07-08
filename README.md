@@ -34,6 +34,9 @@
 - 刪除購物車商品資料　-deleteCart-
 - 購物車結帳並搭配會員VIP折扣優惠 -checkOutCart-
 - 取得已結帳訂單資料 -getCheckedOutCart-
+### Product
+- 按照特殊商品(MVP)分類並取得商品資料　-getProduct-
+- 上傳商品圖片　-uploadImage-
 
 ## Views
 
@@ -46,3 +49,5 @@
 - （id／cart_id／product_id／quantity／created_at／updated_at）
 ### Products
 - （id／cht_name／en_name／content／price／quantity／created_at／updated_at）
+### Images
+-  （id／source_type／source_id／path／file_name／created_at／updated_at）
