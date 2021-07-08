@@ -1,8 +1,8 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-## About「Laravel Beginner Work」
+## About「Laravel Basic Work」
 
-這是一份使用 PHP 框架 Laravel 進行撰寫的入門作品，以電商平台的各種功能為目標去實作，由於未撰寫前端元件 View，所以需搭配 Postman 進行測試，使用的技術元件包含:
+這是一份使用 PHP 框架 Laravel 進行撰寫的初級作品，以電商平台的各種功能為目標去實作，並搭配前端元件 View 顯示畫面，使用的技術元件包含:
 
 ## Demo
 ### [Laravel Beginner Work Demo](https://www.youtube.com/watch?v=zQ1_1twdLvE&ab_channel=fueqaxvk)
