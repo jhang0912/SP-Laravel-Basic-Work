@@ -5,7 +5,7 @@
 這是一份使用 PHP 框架 Laravel 進行撰寫的初級作品，以電商平台的各種功能為目標去實作，並搭配前端元件 View 顯示畫面，使用的技術元件包含:
 
 ## Demo
-### [Laravel Beginner Work Demo](https://www.youtube.com/watch?v=zQ1_1twdLvE&ab_channel=fueqaxvk)
+### [Laravel Basic Work]()
 
 ## Routes
 - POST：(cart：CartController@addProductsToCart)
@@ -34,6 +34,8 @@
 - 刪除購物車商品資料　-deleteCart-
 - 購物車結帳並搭配會員VIP折扣優惠 -checkOutCart-
 - 取得已結帳訂單資料 -getCheckedOutCart-
+
+## Views
 
 ## Models
 ### User

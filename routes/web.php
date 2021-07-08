@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* 取得商品資料 */
+Route::get('/', 'App\Http\Controllers\ProductController@getProduct')->name('getProduct');
+
+/* 上傳圖片 */
+Route::post('uploadImage', 'App\Http\Controllers\ProductController@uploadImage');
 
 /* 會員註冊 */
 Route::post('register', 'App\Http\Controllers\MemberController@register');
@@ -34,3 +36,5 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('checkOutCart', 'App\Http\Controllers\CartController@checkOutCart'); //結帳
     Route::post('getCheckedOutCart', 'App\Http\Controllers\CartController@getCheckedOutCart'); //取得已結帳訂單資料
 });
+
+
