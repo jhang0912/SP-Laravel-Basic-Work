@@ -12,10 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+////////// 前端頁面顯示 //////////
 
-/* 取得商品資料 */
-Route::get('/', 'App\Http\Controllers\ProductController@getProduct')->name('getProduct');
+/* 首頁 */
+Route::get('/home', 'App\Http\Controllers\ProductController@getProduct')->name('home');
+/* 會員登入 */
+Route::get('/signin-and-register', function () {
+    return view('member.signIn');
+})->name('signin_and_register');
 
+////////// 後端邏輯操作 //////////
 /* 上傳圖片 */
 Route::post('uploadImage', 'App\Http\Controllers\ProductController@uploadImage');
 
@@ -36,5 +42,3 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('checkOutCart', 'App\Http\Controllers\CartController@checkOutCart'); //結帳
     Route::post('getCheckedOutCart', 'App\Http\Controllers\CartController@getCheckedOutCart'); //取得已結帳訂單資料
 });
-
-

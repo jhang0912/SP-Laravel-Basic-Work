@@ -1,19 +1,34 @@
-{{-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<style>
+    .void
+    {
+        width: 100%;
+        height: 57px;
+    }
+    .navbar {
+        background-color: rgb(25, 25, 25);
+        position: fixed;
+        top: 0%;
+        z-index: 100;
+        width: 100%;
+    }
+
+</style>
+<nav class="void"></nav>
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid d-flex justify-content-between align-items-center ms-1 me-1">
-        <div><a class="nav-link text-decoration-none  h3" href="">Ragnarok Online</a></div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="" id="navbarNav">
-            <ul class="navbar-nav d-flex justify-content-center ">
-                <li class="nav-item ms-2 me-2">
-                    <a class="nav-link h3 m-0" href="#"><i class="fas fa-shopping-cart"></i></a>
-                </li>
-                <li class="nav-item ms-2 me-2">
-                    <a class="nav-link h3" href="#"><i class="fas fa-sign-in-alt"></i></a>
-                </li>
-            </ul>
+        <div><a class="nav-link text-decoration-none h3 text-white" href="{{ route('home') }}">Ragnarok Online Card
+                Store</a>
+        </div>
+        <div class="">
+            <div class="d-flex justify-content-center">
+                <div class="">
+                    <a class="nav-link" href="#" title="購物車"><i class="fas fa-shopping-cart h4 text-white m-0"></i></a>
+                </div>
+                <div class="">
+                    <a class="nav-link" href="{{ route('signin_and_register') }}" title="會員登入"><i
+                            class="fas fa-sign-in-alt h4 text-white m-0"></i></a>
+                </div>
+            </div>
         </div>
     </div>
-</nav> --}}
+</nav>

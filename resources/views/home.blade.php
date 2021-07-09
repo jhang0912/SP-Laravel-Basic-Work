@@ -10,10 +10,18 @@
             width: 70vw
         }
 
+        .bg_top {
+            position: absolute;
+            top: 10%;
+            left: -30%;
+            max-width: 295px;
+            width: 20%;
+        }
+
     </style>
-    <div class="product-container d-flex flex-wrap justify-content-center align-items-center bg-light shadow p-3 mt-4 mb-4">
-        <div class="container-fluid h2 text-center">Card</div>
-        <div class="normal-card d-flex flex-wrap justify-content-start align-items-center mb-2">
+    <div class="product-container d-flex flex-wrap justify-content-center align-items-center mt-4 p-3">
+        <div class="normal-card d-flex flex-wrap justify-content-start align-items-center mb-4">
+            <div class="container-fluid rounded bg-light h2 text-center mb-4 p-2">Card</div>
             @foreach ($products as $product)
                 <div class="card col-6 col-lg-4 col-xl-3 d-flex flex-wrap justify-content-start align-items-start">
                     <img src="{{ asset($product->image_url) }}" class="card-img-top" alt="{{ $product->en_name }}">
@@ -22,17 +30,28 @@
                         <div class="card-equipment h6">裝備：{{ $product->equipment }}</div>
                         <div class="card-price h6">售價：{{ $product->price }} Z</div>
                         {{-- <button type="button" class="upload_image btn btn-primary" data-id="{{ $product->id }}"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            上傳圖片
-                        </button> --}}
-                        <button class="add-to-cart btn btn-sm btn-danger float-end">加入購物車</button>
+                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                上傳圖片
+                            </button> --}}
+                        <div class="card-quantity h6">數量：
+                            <select class="form-select-sm" name="quantity" id="">
+                                @for ($i = 1; $i <= $product->quantity; $i++)
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="add_to_cart">
+                            <button class="add-to-cart btn btn-sm btn-danger"><i
+                                    class="fas fa-shopping-cart h6 text-white me-1 mb-0"></i>加入購物車
+                            </button>
+                        </div>
                     </div>
                 </div>
             @endforeach
         </div>
 
-        <div class="container-fluid h2 text-center">MVP Card</div>
         <div class="mvp-card d-flex flex-wrap justify-content-start align-items-center">
+            <div class="container-fluid rounded bg-light h2 text-center mb-4 p-2">MVP Card</div>
             @foreach ($mvp_products as $mvp_product)
                 <div class="card col-6 col-lg-4 col-xl-3 d-flex flex-wrap justify-content-start align-items-start">
                     <img src="{{ asset($mvp_product->image_url) }}" class="card-img-top"
@@ -43,11 +62,23 @@
                         </div>
                         <div class="card-equipment h6">裝備：{{ $mvp_product->equipment }}</div>
                         <div class="card-price h6">售價：{{ $mvp_product->price }} Z</div>
-                        <button class="add-to-cart btn btn-sm btn-danger float-end">加入購物車</button>
+                        <div class="card-quantity h6">數量：
+                            <select class="form-select-sm" name="quantity" id="">
+                                @for ($i = 1; $i <= $mvp_product->quantity; $i++)
+                                    <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="add_to_cart">
+                            <button class="add-to-cart btn btn-sm btn-danger"><i
+                                    class="fas fa-shopping-cart h6 text-white me-1 mb-0"></i>加入購物車
+                            </button>
+                        </div>
                     </div>
                 </div>
             @endforeach
         </div>
+    </div>
     </div>
     </div>
     <!-- Modal -->

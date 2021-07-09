@@ -21,7 +21,15 @@
         }
 
         body {
-            background-color: rgb(235, 235, 235)
+            width: 100%;
+            height: 100%;
+            background-image: url('../public/storage/images/main_bg.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            z-index: 1;
         }
 
     </style>
