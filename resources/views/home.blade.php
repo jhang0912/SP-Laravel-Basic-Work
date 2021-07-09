@@ -1,40 +1,55 @@
 @extends('layout.html')
 
 @section('content')
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-        @foreach ($products as $product)
-            <div class="card col-3">
-                <img src="{{ asset($product->image_url) }}" class="card-img-top" alt="{{ $product->en_name }}">
-                <div class="card-body">
-                    <div class="card-title h4">{{ $product->cht_name }}卡片</div>
-                    <div class="card-text">效果：{{ $product->content }}</div>
-                    <div class="card-text">裝備：{{ $product->equipment }}</div>
-                    <div class="card-text">價格：{{ $product->price }} Z</div>
-                    {{-- <button type="button" class="upload_image btn btn-primary" data-id="{{ $product->id }}"
-                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        上傳圖片
-                    </button> --}}
-                </div>
-            </div>
-        @endforeach
-        @foreach ($mvp_products as $mvp_product)
-            <div class="card col-3">
-                <img src="{{ asset($mvp_product->image_url) }}" class="card-img-top" alt="{{ $mvp_product->en_name }}">
-                <div class="card-body">
-                    <div class="card-title h4">{{ $mvp_product->cht_name }}卡片 <span
-                            class="border border-2 border-warning rounded fw-bolder h6 text-warning">MVP</span></div>
-                    <div class="card-text">效果：{{ $mvp_product->content }}</div>
-                    <div class="card-text">裝備：{{ $mvp_product->equipment }}</div>
-                    <div class="card-text">價格：{{ $mvp_product->price }} Z</div>
-                    {{-- <button type="button" class="upload_image btn btn-primary" data-id="{{ $mvp_product->id }}"
-                        data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        上傳圖片
-                    </button> --}}
-                </div>
-            </div>
-        @endforeach
-    </div>
+    <style>
+        .normal-card {
+            width: 70vw
+        }
 
+        .mvp-card {
+            width: 70vw
+        }
+
+    </style>
+    <div class="product-container d-flex flex-wrap justify-content-center align-items-center bg-light shadow p-3 mt-4 mb-4">
+        <div class="container-fluid h2 text-center">Card</div>
+        <div class="normal-card d-flex flex-wrap justify-content-start align-items-center mb-2">
+            @foreach ($products as $product)
+                <div class="card col-6 col-lg-4 col-xl-3 d-flex flex-wrap justify-content-start align-items-start">
+                    <img src="{{ asset($product->image_url) }}" class="card-img-top" alt="{{ $product->en_name }}">
+                    <div class="card-body w-100">
+                        <div class="card-name fw-bolder h5">{{ $product->cht_name }}卡片</div>
+                        <div class="card-equipment h6">裝備：{{ $product->equipment }}</div>
+                        <div class="card-price h6">售價：{{ $product->price }} Z</div>
+                        {{-- <button type="button" class="upload_image btn btn-primary" data-id="{{ $product->id }}"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            上傳圖片
+                        </button> --}}
+                        <button class="add-to-cart btn btn-sm btn-danger float-end">加入購物車</button>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="container-fluid h2 text-center">MVP Card</div>
+        <div class="mvp-card d-flex flex-wrap justify-content-start align-items-center">
+            @foreach ($mvp_products as $mvp_product)
+                <div class="card col-6 col-lg-4 col-xl-3 d-flex flex-wrap justify-content-start align-items-start">
+                    <img src="{{ asset($mvp_product->image_url) }}" class="card-img-top"
+                        alt="{{ $mvp_product->en_name }}">
+                    <div class="card-body w-100">
+                        <div class="card-name fw-bolder h5">{{ $mvp_product->cht_name }}卡片 <span
+                                class="d-none d-xl-inline border border-2 border-warning rounded fw-bolder h6 text-warning">MVP</span>
+                        </div>
+                        <div class="card-equipment h6">裝備：{{ $mvp_product->equipment }}</div>
+                        <div class="card-price h6">售價：{{ $mvp_product->price }} Z</div>
+                        <button class="add-to-cart btn btn-sm btn-danger float-end">加入購物車</button>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
