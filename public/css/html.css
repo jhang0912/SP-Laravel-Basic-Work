@@ -1,0 +1,17 @@
+*
+{
+    font-family: 'Cinzel', serif;
+}
+
+body
+{
+    width: 100%;
+    height: 100%;
+    background-image: url('../storage/images/main_bg.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1;
+}

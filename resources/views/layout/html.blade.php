@@ -14,25 +14,9 @@
         rel="stylesheet">
     {{-- jQuery --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- css --}}
+    <link rel="stylesheet" href="{{ asset('css/html.css') }}">
     <title>Ragnarok Online Card Store</title>
-    <style>
-        * {
-            font-family: 'Cinzel', serif;
-        }
-
-        body {
-            width: 100%;
-            height: 100%;
-            background-image: url('../public/storage/images/main_bg.jpg');
-            background-size: cover;
-            background-position: center top;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            position: relative;
-            z-index: 1;
-        }
-
-    </style>
 </head>
 
 <body>
