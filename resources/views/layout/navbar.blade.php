@@ -1,19 +1,9 @@
 <style>
-    .void
-    {
-        width: 100%;
-        height: 57px;
-    }
     .navbar {
         background-color: rgb(25, 25, 25);
-        position: fixed;
-        top: 0%;
-        z-index: 100;
-        width: 100%;
     }
 
 </style>
-<nav class="void"></nav>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid d-flex justify-content-between align-items-center ms-1 me-1">
         <div><a class="nav-link text-decoration-none h3 text-white" href="{{ route('home') }}">Ragnarok Online Card

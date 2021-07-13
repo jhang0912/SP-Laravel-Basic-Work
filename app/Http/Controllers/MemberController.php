@@ -13,7 +13,7 @@ class MemberController extends Controller
     /* 會員註冊 */
     public function register(RegisterPostRequest $request)
     {
-        $registerPost = $request->all();
+        $registerPost = $request->validated();
 
         $database = new User;
         $result = $database->register($registerPost);

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 ////////// 前端頁面顯示 //////////
 
 /* 首頁 */
+
 Route::get('/home', 'App\Http\Controllers\ProductController@getProduct')->name('home');
 /* 會員登入 */
 Route::get('/signin-and-register', function () {
@@ -26,10 +27,10 @@ Route::get('/signin-and-register', function () {
 Route::post('uploadImage', 'App\Http\Controllers\ProductController@uploadImage');
 
 /* 會員註冊 */
-Route::post('register', 'App\Http\Controllers\MemberController@register');
+Route::post('register', 'App\Http\Controllers\MemberController@register')->name('register');
 
 /* 會員登入 */
-Route::post('signIn', 'App\Http\Controllers\MemberController@signIn');
+Route::post('signIn', 'App\Http\Controllers\MemberController@signIn')->name('signIn');
 
 /* 會員授權操作 */
 Route::group(['middleware' => 'auth:api'], function () {

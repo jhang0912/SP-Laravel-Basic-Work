@@ -19,7 +19,7 @@
         }
 
     </style>
-    <div class="product-container d-flex flex-wrap justify-content-center align-items-center mt-4 p-3">
+    <div class="product-container d-flex flex-wrap justify-content-center align-items-center mt-2 p-3">
         <div class="normal-card d-flex flex-wrap justify-content-start align-items-center mb-4">
             <div class="container-fluid rounded bg-light h2 text-center mb-4 p-2">Card</div>
             @foreach ($products as $product)
