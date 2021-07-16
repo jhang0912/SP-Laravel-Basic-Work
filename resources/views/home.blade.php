@@ -1,24 +1,6 @@
-@extends('layout.html')
+@extends('layouts.html')
 
 @section('content')
-    <style>
-        .normal-card {
-            width: 70vw
-        }
-
-        .mvp-card {
-            width: 70vw
-        }
-
-        .bg_top {
-            position: absolute;
-            top: 10%;
-            left: -30%;
-            max-width: 295px;
-            width: 20%;
-        }
-
-    </style>
     <div class="product-container d-flex flex-wrap justify-content-center align-items-center mt-2 p-3">
         <div class="normal-card d-flex flex-wrap justify-content-start align-items-center mb-4">
             <div class="container-fluid rounded bg-light h2 text-center mb-4 p-2">Card</div>

@@ -16,11 +16,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('css/html.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <title>Ragnarok Online Card Store</title>
 </head>
 
 <body>
-    @include('layout.navbar')
+    @include('layouts.navbar')
     @yield('content')
     <section>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

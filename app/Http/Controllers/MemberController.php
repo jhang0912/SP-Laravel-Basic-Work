@@ -24,7 +24,7 @@ class MemberController extends Controller
     }
 
     /* 會員登入 */
-    public function signIn(SignInPostRequest $request)
+    public function signin(SignInPostRequest $request)
     {
         $signInPost = $request->all();
 

@@ -1,0 +1,16 @@
+.normal-card
+{
+    width: 70vw
+}
+.mvp-card
+{
+    width: 70vw
+}
+.bg_top
+{
+    position: absolute;
+    top: 10%;
+    left: -30%;
+    max-width: 295px;
+    width: 20%;
+}
