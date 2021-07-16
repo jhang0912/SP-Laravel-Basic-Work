@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark mb-3">
     <div class="container-fluid d-flex justify-content-between align-items-center ms-1 me-1">
         <div><a class="nav-link text-decoration-none h3 text-white" href="{{ route('home') }}">Ragnarok Online Card
                 Store</a>

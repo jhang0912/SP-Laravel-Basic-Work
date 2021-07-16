@@ -21,12 +21,12 @@ Route::get('/signin-and-register', function () {
     return view('member.signIn');
 })->name('signin_and_register');
 /* 後端管理 */
-Route::get('/admin', 'App\Http\Controllers\ProductController@getProduct')->name('admin');
+Route::get('/admin', 'App\Http\Controllers\AdminController@getProduct')->name('admin');
 
 ////////// 後端邏輯操作 //////////
 
-/* 上傳圖片 */
-Route::post('uploadImage', 'App\Http\Controllers\ProductController@uploadImage');
+/* 上傳商品圖片 */
+Route::post('uploadImage', 'App\Http\Controllers\AdminController@uploadImage');
 
 /* 會員註冊 */
 Route::post('register', 'App\Http\Controllers\MemberController@register')->name('register');

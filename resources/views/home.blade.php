@@ -11,10 +11,6 @@
                         <div class="card-name fw-bolder h5">{{ $product->cht_name }}卡片</div>
                         <div class="card-equipment h6">裝備：{{ $product->equipment }}</div>
                         <div class="card-price h6">售價：{{ $product->price }} Z</div>
-                        {{-- <button type="button" class="upload_image btn btn-primary" data-id="{{ $product->id }}"
-                                data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                上傳圖片
-                            </button> --}}
                         <div class="card-quantity h6">數量：
                             <select class="form-select-sm" name="quantity" id="">
                                 @for ($i = 1; $i <= $product->quantity; $i++)
