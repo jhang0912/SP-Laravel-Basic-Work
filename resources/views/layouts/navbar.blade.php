@@ -6,11 +6,12 @@
         <div class="">
             <div class="d-flex justify-content-center">
                 <div class="">
-                    <a class="nav-link" href="#" title="購物車"><i class="fas fa-shopping-cart h4 text-white m-0"></i></a>
+                    <a class="nav-link" href="{{ route('home') }}" title=""><i
+                            class="fas fa-store h4 text-white m-0"></i></a>
                 </div>
                 <div class="">
-                    <a class="nav-link" href="{{ route('signin_and_register') }}" title="會員登入"><i
-                            class="fas fa-sign-in-alt h4 text-white m-0"></i></a>
+                    <a class="nav-link" href="{{ route('admin') }}" title=""><i
+                            class="fas fa-toolbox h4 text-white m-0"></i></a>
                 </div>
             </div>
         </div>

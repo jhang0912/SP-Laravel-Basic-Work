@@ -5,36 +5,36 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th class="text-center">ID</th>
-                    <th class="text-center">預覽圖</th>
-                    <th class="text-center">中文名稱</th>
-                    <th class="text-center">英文名稱</th>
-                    <th class="text-center">mvp</th>
-                    <th class="text-center">效果</th>
-                    <th class="text-center">裝備</th>
-                    <th class="text-center">價格</th>
-                    <th class="text-center">庫存數量</th>
-                    <th class="text-center">操作</th>
+                    <th>ID</th>
+                    <th>預覽圖</th>
+                    <th>中文名稱</th>
+                    <th>英文名稱</th>
+                    <th>mvp</th>
+                    <th>效果</th>
+                    <th>裝備</th>
+                    <th>價格</th>
+                    <th>庫存數量</th>
+                    <th>操作</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($products as $product)
                     <tr>
-                        <th class="text-center">{{ $product->id }}</th>
-                        <td class="text-center"><img class="w-25" src="{{ asset($product->image_url) }}"></td>
-                        <td class="text-center">{{ $product->cht_name }}</td>
-                        <td class="text-center">{{ $product->en_name }}</td>
-                        <td class="text-center">{{ $product->mvp }}</td>
-                        <td class="text-center">{{ $product->content }}</td>
-                        <td class="text-center">{{ $product->equipment }}</td>
-                        <td class="text-center">${{ $product->price }}</td>
-                        <td class="text-center">{{ $product->quantity }}</td>
-                        <td class="w-25 text-center">
-                            <button type="button" class="upload_image btn btn-primary" data-id="" data-bs-toggle="modal"
+                        <th>{{ $product->id }}</th>
+                        <td><img class="w-25" src="{{ asset($product->image_url) }}"></td>
+                        <td>{{ $product->cht_name }}</td>
+                        <td>{{ $product->en_name }}</td>
+                        <td>{{ $product->mvp }}</td>
+                        <td>{{ $product->content }}</td>
+                        <td>{{ $product->equipment }}</td>
+                        <td>${{ $product->price }}</td>
+                        <td>{{ $product->quantity }}</td>
+                        <td class="w-25 ">
+                            <button type="button" class="upload_image btn btn-primary" data-id="{{ $product->id }}" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
                                 上傳圖片
                             </button>
-                            <button class="upload_content btn btn-success">編輯內容</button>
+                            <button class="upload_content btn btn-success">編輯資料</button>
                         </td>
                     </tr>
                 @endforeach
@@ -43,7 +43,7 @@
         <div class="container text-center">
             @for ($i = 1; $i <= 2; $i++)
                 @if ($i != $currentPage)
-                    <a class="text-decoration-none btn btn-lg btn-outline-primary" href="admin?pages={{ $i }}">
+                    <a class="text-decoration-none btn btn-lg btn-outline-primary" href="admin?page={{ $i }}">
                         <div class="d-inline">{{ $i }}</div>
                     </a>
                 @else

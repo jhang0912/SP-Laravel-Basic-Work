@@ -13,7 +13,7 @@ class AdminController extends Controller
     {
         $count = Products::count();
         $pages = ceil($count / 10);
-        $currentPage = isset($request->all()['pages']) ? $request->all()['pages'] : 1;
+        $currentPage = isset($request->all()['page']) ? $request->all()['page'] : 1;
         $offset = ($currentPage - 1) * 10;
         $products = Products::offset($offset)->limit(10)->get();
 
