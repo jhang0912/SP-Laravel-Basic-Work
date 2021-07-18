@@ -1,7 +1,8 @@
 @extends('layouts.html')
 
 @section('content')
-    <div class="container bg-light rounded mb-3 p-3">
+{{-- Products Table --}}
+    <div class="products-admin bg-light rounded mb-3 p-3">
         <table class="table">
             <thead>
                 <tr>
@@ -21,15 +22,15 @@
                 @foreach ($products as $product)
                     <tr>
                         <th>{{ $product->id }}</th>
-                        <td><img class="w-25" src="{{ asset($product->image_url) }}"></td>
+                        <td><img class="product-image" src="{{ asset($product->image_url) }}"></td>
                         <td>{{ $product->cht_name }}</td>
                         <td>{{ $product->en_name }}</td>
                         <td>{{ $product->mvp }}</td>
-                        <td>{{ $product->content }}</td>
+                        <td class="w-25">{{ $product->content }}</td>
                         <td>{{ $product->equipment }}</td>
                         <td>${{ $product->price }}</td>
                         <td>{{ $product->quantity }}</td>
-                        <td class="w-25 ">
+                        <td class="">
                             <button type="button" class="upload_image btn btn-primary" data-id="{{ $product->id }}" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
                                 上傳圖片
@@ -53,7 +54,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    {{-- Modal --}}
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -72,6 +73,8 @@
         </div>
     </div>
 
+
+    {{-- JavaScript --}}
     <script>
         $('.upload_image').on('click', function() {
             let product_id = $(this).data('id')

@@ -32,7 +32,7 @@
             <div class="container-fluid rounded bg-light h2 text-center mb-4 p-2">MVP Card</div>
             @foreach ($mvp_products as $mvp_product)
                 <div class="card col-6 col-lg-4 col-xl-3 d-flex flex-wrap justify-content-start align-items-start">
-                    <img src="{{ asset($mvp_product->image_url) }}" class="card-img-top"
+                    <img class="card-img-top" src="{{ asset($mvp_product->image_url) }}"
                         alt="{{ $mvp_product->en_name }}">
                     <div class="card-body w-100">
                         <div class="card-name fw-bolder h5">{{ $mvp_product->cht_name }}卡片 <span

@@ -6,11 +6,15 @@
         <div class="">
             <div class="d-flex justify-content-center">
                 <div class="">
-                    <a class="nav-link" href="{{ route('home') }}" title=""><i
+                    <a class="nav-link" href="{{ route('home') }}" title="通知"><i
+                            class="fas fa-bell h4 text-white m-0"></i></a>
+                </div>
+                <div class="">
+                    <a class="nav-link" href="{{ route('home') }}" title="商店首頁"><i
                             class="fas fa-store h4 text-white m-0"></i></a>
                 </div>
                 <div class="">
-                    <a class="nav-link" href="{{ route('admin') }}" title=""><i
+                    <a class="nav-link" href="{{ route('admin') }}" title="後台管理"><i
                             class="fas fa-toolbox h4 text-white m-0"></i></a>
                 </div>
             </div>

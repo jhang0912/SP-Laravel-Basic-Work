@@ -2,4 +2,12 @@ th,td
 {
     text-align: center;
 }
-
+.product-image
+{
+    width: 75px;
+}
+.products-admin
+{
+    width: 75vw;
+    margin: 0 auto;
+}
