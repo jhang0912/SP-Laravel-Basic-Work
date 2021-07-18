@@ -57,7 +57,7 @@ class Products extends Model
         }
     }
 
-    static function getProducts($offset)
+    static function getAdminProducts($offset)
     {
         $products = Products::offset($offset)->limit(10)->get();
 
@@ -68,5 +68,21 @@ class Products extends Model
         }
 
         return $products;
+    }
+
+    static function getHomeProducts()
+    {
+        $products = Products::orderby('price')->get();
+        $classified_products = $products->groupby('mvp');
+
+        foreach ($classified_products as $products) {
+            foreach ($products as $product) {
+                if (isset($product->image_url)) {
+                    $product['image'] = $product->image_url;
+                }
+            }
+        }
+
+        return $classified_products;
     }
 }

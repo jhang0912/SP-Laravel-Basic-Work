@@ -10,34 +10,23 @@ use function PHPUnit\Framework\isNull;
 
 class AdminController extends Controller
 {
-    /* 取得商品資料 */
-    public function getProduct(Request $request)
-    {
-        $count = Products::count();
-        $pages = ceil($count / 10);
-        $currentPage = isset($request->all()['page']) ? $request->all()['page'] : 1;
-        $offset = ($currentPage - 1) * 10;
-
-        if (isNull(Redis::get("products_$currentPage"))) {
-
-            $products = Products::getProducts($offset);
-
-            $this->createProductsRedis($products, $currentPage);
-        }
-
-        $products = json_decode(Redis::get("products_$currentPage"));
-
-        return view('admin', [
-            'products' => $products,
-            'pages' => $pages,
-            'currentPage' => $currentPage
-        ]);
-    }
-
     /* 將商品資料寫入 Redis */
-    public function createProductsRedis($products, $currentPage)
+    static function createAdminProductsRedis($products, $currentPage)
     {
         Redis::set("products_$currentPage", $products);
+    }
+
+    /* 將前台商品資料寫入 Redis */
+    static function createHomeProductsRedis($products, $category)
+    {
+        switch ($category) {
+            case 'normal':
+                Redis::set('products',$products);
+                break;
+            case 'mvp':
+                Redis::set('mvp_products',$products);
+                break;
+        }
     }
 
     /* 上傳商品圖片 */

@@ -6,7 +6,7 @@
             <div class="container-fluid rounded bg-light h2 text-center mb-4 p-2">Card</div>
             @foreach ($products as $product)
                 <div class="card col-6 col-lg-4 col-xl-3 d-flex flex-wrap justify-content-start align-items-start">
-                    <img src="{{ asset($product->image_url) }}" class="card-img-top" alt="{{ $product->en_name }}">
+                    <img src="{{ asset($product->image) }}" class="card-img-top" alt="{{ $product->en_name }}">
                     <div class="card-body w-100">
                         <div class="card-name fw-bolder h5">{{ $product->cht_name }}卡片</div>
                         <div class="card-equipment h6">裝備：{{ $product->equipment }}</div>
@@ -32,7 +32,7 @@
             <div class="container-fluid rounded bg-light h2 text-center mb-4 p-2">MVP Card</div>
             @foreach ($mvp_products as $mvp_product)
                 <div class="card col-6 col-lg-4 col-xl-3 d-flex flex-wrap justify-content-start align-items-start">
-                    <img class="card-img-top" src="{{ asset($mvp_product->image_url) }}"
+                    <img class="card-img-top" src="{{ asset($mvp_product->image) }}"
                         alt="{{ $mvp_product->en_name }}">
                     <div class="card-body w-100">
                         <div class="card-name fw-bolder h5">{{ $mvp_product->cht_name }}卡片 <span
