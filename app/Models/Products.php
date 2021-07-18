@@ -56,4 +56,17 @@ class Products extends Model
             return Storage::url($images->path);
         }
     }
+
+    static function getProducts($offset)
+    {
+        $products = Products::offset($offset)->limit(10)->get();
+
+        foreach ($products as $product) {
+            if (isset($product->image_url)) {
+                $product['image'] = $product->image_url;
+            }
+        }
+
+        return $products;
+    }
 }
