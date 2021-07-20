@@ -17,6 +17,10 @@
                     <a class="nav-link" href="{{ route('admin') }}" title="後台管理"><i
                             class="fas fa-toolbox h4 text-white m-0"></i></a>
                 </div>
+                <div class="">
+                    <a class="nav-link" href="{{ route('order') }}" title="訂單管理"><i
+                            class="fas fa-list h4 text-white m-0"></i></a>
+                </div>
             </div>
         </div>
     </div>

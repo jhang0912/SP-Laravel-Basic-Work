@@ -12,20 +12,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-////////// 前端頁面顯示 //////////
+////////////////////////////// 前端頁面顯示 //////////////////////////////
 
 /* 首頁 */
 Route::get('/home', 'App\Http\Controllers\ProductController@home')->name('home');
+
 /* 會員登入 */
 Route::get('/signin-and-register', function () {
     return view('member.signIn');
 })->name('signin_and_register');
-/* 後端管理 */
+
+/* 商品管理 */
 Route::get('/admin', 'App\Http\Controllers\ProductController@admin')->name('admin');
 
-////////// 後端邏輯操作 //////////
+/* 訂單管理 */
+Route::get('/order', 'App\Http\Controllers\OrderController@order')->name('order');
 
-/* 使用 Queue 更新全部商品價格 */
+////////////////////////////// 後端邏輯操作 //////////////////////////////
+
+/*新增 jobs 更新全部商品價格 */
 Route::post('updateProductsPrice', 'App\Http\Controllers\AdminController@updateProductsPrice');
 
 /* 上傳商品圖片 */

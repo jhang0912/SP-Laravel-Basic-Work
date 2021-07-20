@@ -49,7 +49,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Carts::class);
     }
-
     /* functions */
     public function register($registerPost)//會員註冊
     {

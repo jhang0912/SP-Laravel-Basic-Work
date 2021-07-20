@@ -44,7 +44,7 @@ class ProductController extends Controller
 
         $products = json_decode(Redis::get("products_$currentPage"));
 
-        return view('admin', [
+        return view('admin.products', [
             'products' => $products,
             'pages' => $pages,
             'currentPage' => $currentPage

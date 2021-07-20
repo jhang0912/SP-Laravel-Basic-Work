@@ -17,15 +17,10 @@ class Carts extends Model
         'deliveried'
     ];
 
-    protected $hidden = [
-        'created_at',
-        'updated_at'
-    ];
-
     /* Relationships */
-    public function users()
+    public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function cart_items()
