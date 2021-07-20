@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\UpdateProductsPrice;
 use Illuminate\Http\Request;
 use App\Models\Products;
 use Illuminate\Support\Facades\Redis;
-
-use function PHPUnit\Framework\isNull;
 
 class AdminController extends Controller
 {
@@ -21,12 +20,38 @@ class AdminController extends Controller
     {
         switch ($category) {
             case 'normal':
-                Redis::set('products',$products);
+                Redis::set('products', $products);
                 break;
             case 'mvp':
-                Redis::set('mvp_products',$products);
+                Redis::set('mvp_products', $products);
                 break;
         }
+    }
+
+    /* 刪除商品的 Redis */
+    public function deleteProductsRedis()
+    {
+        $count = Products::count();
+        $pages = ceil($count / 10);
+
+        for ($i = 1; $i <= $pages; $i++) {
+            Redis::del("products_$i");
+        }
+        Redis::del('products');
+        Redis::del('mvp_products');
+    }
+
+    /* 使用 Queue 更新全部商品價格 */
+    public function updateProductsPrice(Request $request)
+    {
+        $discount = $request->input('discount');
+        $products = Products::get();
+
+        foreach ($products as $product) {
+            UpdateProductsPrice::dispatch($product, $discount);
+        }
+
+        $this->deleteProductsRedis();
     }
 
     /* 上傳商品圖片 */

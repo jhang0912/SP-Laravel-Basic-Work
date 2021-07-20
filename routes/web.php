@@ -25,6 +25,9 @@ Route::get('/admin', 'App\Http\Controllers\ProductController@admin')->name('admi
 
 ////////// 後端邏輯操作 //////////
 
+/* 使用 Queue 更新全部商品價格 */
+Route::post('updateProductsPrice', 'App\Http\Controllers\AdminController@updateProductsPrice');
+
 /* 上傳商品圖片 */
 Route::post('uploadImage', 'App\Http\Controllers\AdminController@uploadImage');
 
