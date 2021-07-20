@@ -11,14 +11,16 @@ class OnSale extends Notification
 {
     use Queueable;
 
+    protected $product;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($product)
     {
-        //
+        $this->product = $product;
     }
 
     /**
@@ -55,7 +57,7 @@ class OnSale extends Notification
     public function toArray($notifiable)
     {
         return [
-            'message' => '歡慶周年慶活動開跑囉 ~ 全館商品特價中!!，立即手刀搶購去。'
+            'message' => '「'.$this->product->cht_name.'卡片」優惠特價中，趕緊手刀搶購喔 ~'
         ];
     }
 }

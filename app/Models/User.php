@@ -49,8 +49,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Carts::class);
     }
+
+    public function products()
+    {
+        return $this->belongsToMany(Products::class,'product_user');
+    }
     /* functions */
-    public function register($registerPost)//會員註冊
+    public function register($registerPost) //會員註冊
     {
         $result = User::make([
             'name' => $registerPost['name'],

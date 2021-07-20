@@ -27,7 +27,5 @@ class OrderController extends Controller
             'pages' => $pages,
             'currentPage' => $currentPage
         ]);
-
-        // return response($orders);
     }
 }

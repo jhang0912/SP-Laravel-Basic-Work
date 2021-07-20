@@ -37,6 +37,11 @@ class Products extends Model
         return $this->morphMany(Images::class, 'source');
     }
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'product_user', 'product_id');
+    }
+
     /* function */
     static function checkProductQuantity($product)
     {
