@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\ShortUrlService;
 use App\Jobs\UpdateProductsPrice;
 use Illuminate\Http\Request;
 use App\Models\Products;
@@ -52,6 +53,22 @@ class AdminController extends Controller
         }
 
         $this->deleteProductsRedis();
+    }
+
+    /* 分享本網站短網址 */
+    public function shareShortUrl()
+    {
+        if (Redis::get('shortUrl') == null) {
+            $service = new ShortUrlService();
+            $url = $service->createShortUrl();
+            Redis::set('shortUrl', $url);
+        }
+
+        $url = Redis::get('shortUrl');
+
+        return view('admin.shareShortUrl', [
+            'url' => $url
+        ]);
     }
 
     /* 上傳商品圖片 */

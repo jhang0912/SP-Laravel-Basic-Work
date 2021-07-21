@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 ////////////////////////////// 前端頁面顯示 //////////////////////////////
 
+/* 分享網站網址 */
+Route::get('/shareShortUrl', 'App\Http\Controllers\AdminController@shareShortUrl')->name('shareShortUrl');
+
 /* 通知 */
 Route::get('/notification', 'App\Http\Controllers\MemberController@notification')->name('notification');
 
@@ -35,14 +38,16 @@ Route::post('updateProductsPrice', 'App\Http\Controllers\AdminController@updateP
 /* 上傳商品圖片 */
 Route::post('uploadImage', 'App\Http\Controllers\AdminController@uploadImage');
 
+
 /* 會員註冊 */
 Route::post('register', 'App\Http\Controllers\MemberController@register')->name('register');
+
+/*將會員通知標記已讀 */
+Route::post('readedNotification', 'App\Http\Controllers\MemberController@readedNotification');
 
 /* 會員登入 */
 Route::post('signin', 'App\Http\Controllers\MemberController@signin')->name('signin');
 
-/*將會員通知標記已讀 */
-Route::post('readedNotification', 'App\Http\Controllers\MemberController@readedNotification');
 
 /* 會員授權操作 */
 Route::group(['middleware' => 'auth:api'], function () {

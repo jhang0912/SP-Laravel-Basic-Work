@@ -9,6 +9,10 @@
                             class="fas fa-store h4 text-white m-0"></i></a>
                 </div>
                 <div class="">
+                    <a class="nav-link" href="{{ route('shareShortUrl') }}" title="分享連結"><i
+                            class="fas fa-share h4 text-white m-0"></i></a>
+                </div>
+                <div class="">
                     <a class="nav-link" href="{{ route('notification') }}" title="通知"><i
                             class="fas fa-bell h4 text-white m-0"></i></a>
                 </div>

@@ -1,7 +1,7 @@
 @extends('layouts.html')
 
 @section('content')
-    <div class="container w-50 bg-light p-3">
+    <div class="container w-50 bg-light rounded p-3">
         <div class="text-center h3 p-1">通知</div>
         <div class="text-center h6">親愛的 {{ $member->name }} 先生/小姐，您好</div>
         <ul class="list-group">
