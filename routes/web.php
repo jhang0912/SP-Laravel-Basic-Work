@@ -14,19 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 ////////////////////////////// 前端頁面顯示 //////////////////////////////
 
+/* 通知 */
+Route::get('/notification', 'App\Http\Controllers\MemberController@notification')->name('notification');
+
+/* 訂單管理 */
+Route::get('/order', 'App\Http\Controllers\OrderController@order')->name('order');
+
 /* 首頁 */
 Route::get('/home', 'App\Http\Controllers\ProductController@home')->name('home');
-
-/* 會員登入 */
-Route::get('/signin-and-register', function () {
-    return view('member.signIn');
-})->name('signin_and_register');
 
 /* 商品管理 */
 Route::get('/admin', 'App\Http\Controllers\ProductController@admin')->name('admin');
 
-/* 訂單管理 */
-Route::get('/order', 'App\Http\Controllers\OrderController@order')->name('order');
 
 ////////////////////////////// 後端邏輯操作 //////////////////////////////
 
@@ -41,6 +40,9 @@ Route::post('register', 'App\Http\Controllers\MemberController@register')->name(
 
 /* 會員登入 */
 Route::post('signin', 'App\Http\Controllers\MemberController@signin')->name('signin');
+
+/*將會員通知標記已讀 */
+Route::post('readedNotification', 'App\Http\Controllers\MemberController@readedNotification');
 
 /* 會員授權操作 */
 Route::group(['middleware' => 'auth:api'], function () {

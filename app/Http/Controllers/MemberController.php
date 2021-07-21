@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\RegisterPostRequest;
 use App\Http\Requests\SignInPostRequest;
 use App\Models\User;
+use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Facades\Auth;
 
 class MemberController extends Controller
@@ -52,5 +53,25 @@ class MemberController extends Controller
         $request->user()->token()->revoke();
 
         return response('登出成功');
+    }
+
+    /* 取得會員通知資料 */
+    public function notification()
+    {
+        $member = User::find(1);
+        $notifications = $member->notifications ?? [];
+        $notifications = $notifications->sortby('read_at');
+
+        return view('member.notification', [
+            'member' => $member,
+            'notifications' => $notifications
+        ]);
+    }
+
+    /* 將會員通知標記已讀 */
+    public function readedNotification(Request $request)
+    {
+        $id = $request->all()['id'];
+        DatabaseNotification::find($id)->markAsRead();
     }
 }
