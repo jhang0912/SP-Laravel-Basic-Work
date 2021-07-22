@@ -25,7 +25,7 @@ class MemberController extends Controller
     }
 
     /* 會員登入 */
-    public function signin(SignInPostRequest $request)
+    public function signIn(SignInPostRequest $request)
     {
         $signInPost = $request->all();
 
@@ -55,7 +55,7 @@ class MemberController extends Controller
         return response('登出成功');
     }
 
-    /* 取得會員通知資料 */
+    /* 取得會員通知資料並回傳 view(member.notification) */
     public function notification()
     {
         $member = User::find(1);

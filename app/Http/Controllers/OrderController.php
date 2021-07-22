@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    /* 取得已結帳訂單資料並回傳 view */
     public function order(Request $request)
     {
         $count = Carts::count();

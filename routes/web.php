@@ -46,7 +46,7 @@ Route::post('register', 'App\Http\Controllers\MemberController@register')->name(
 Route::post('readedNotification', 'App\Http\Controllers\MemberController@readedNotification');
 
 /* 會員登入 */
-Route::post('signin', 'App\Http\Controllers\MemberController@signin')->name('signin');
+Route::post('signIn', 'App\Http\Controllers\MemberController@signIn')->name('signIn');
 
 
 /* 會員授權操作 */

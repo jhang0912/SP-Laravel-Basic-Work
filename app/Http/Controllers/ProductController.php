@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Redis;
 
 class ProductController extends Controller
 {
-    /* 取得商品資料並進入首頁 */
+    /* 取得商品資料並回傳 view(home) */
     public function home()
     {
         if (Redis::get('products') == null || Redis::get('mvp_products') == null) {
@@ -28,7 +28,7 @@ class ProductController extends Controller
         ]);
     }
 
-    /* 取得商品資料並進入後台 */
+    /* 取得商品資料並回傳 view(admin.products) */
     public function admin(Request $request)
     {
         $count = Products::count();
