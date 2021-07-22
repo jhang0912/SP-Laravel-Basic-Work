@@ -15,8 +15,18 @@
 ### [Laravel Basic Work Demo]()
 
 ## Routes
-- POST：(cart：CartController@addProductsToCart)
+### User Interface
+- GET：(shareShortUrl：AdminController@shareShortUrl)->name(shareShortUrl)
+- GET：(notification：MemberController@notification)->name(notification)
+- GET：(order：OrderController@order)->name(order)
+- GET：(home：ProductController@home)->name(home)
+- GET：(admin：ProductController@admin)->name(admin)
+### Manage interface
+- POST：(updateProductsPrice：AdminController@updateProductsPrice)
+- POST：(uploadImage：AdminController@uploadImage)
 - POST：(register：MemberController@register)
+- POST：(readedNotification：MemberController@readedNotification)
+- POST：(cart：CartController@addProductsToCart)
 - group：([middleware => auth:api], function () {
     - POST：(cart：CartController@addProductsToCart)
     - POST：(signOut：MemberController@signOut)
@@ -59,21 +69,21 @@
 ## Views
 
 ## Models
-### User
-- （id／name／email／email_verified_atpassword／level／remember_token／remember_tokencreated_at／updated_at）
-### Carts
-- （id／user_id／total_price／checked_out／deliveried／created_at／updated_at）
 ### Cart_items （use SoftDeletes）
 - （id／cart_id／product_id／quantity／created_at／updated_at）
-### Products
-- （id／cht_name／en_name／content／price／quantity／created_at／updated_at）
+### Carts
+- （id／user_id／total_price／checked_out／deliveried／created_at／updated_at）
 ### Images
 -  （id／source_type／source_id／path／file_name／created_at／updated_at）
 ### Jobs
 - （id／queue／payload／attempts／reserved_at／available_at／created_at）
+### Log_errors
+- （id／user_id／exception／message／line／trace／method／params／uri／user_agent／header／created_at／updated_at）
 ### Notifications
 - （id／type／notifiable_type／notifiable_id／data／read_at／created_at／updated_at）
 ### Product_user
 - （id／user_id／product_id／created_at／updated_at）
-### Log_errors
-- （id／user_id／exception／message／line／trace／method／params／uri／user_agent／header／created_at／updated_at）
+### Products
+- （id／cht_name／en_name／content／price／quantity／created_at／updated_at）
+### User
+- （id／name／email／email_verified_atpassword／level／remember_token／remember_tokencreated_at／updated_at）
