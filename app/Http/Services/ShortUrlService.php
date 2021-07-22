@@ -15,25 +15,34 @@ class ShortUrlService
 
     public function createShortUrl()
     {
-        $data = [
-            "url" => 'http://localhost/laravel/Homework/public/home',
-            "externalId" => "customer_test_1"
-        ];
+        try {
+            $data = [
+                "url" => 'http://localhost/laravel/Homework/public/home',
+                "externalId" => "customer_test_1"
+            ];
 
-        $response = $this->client->request(
-            'POST',
-            "https://api.pics.ee/v1/links/?access_token=20f07f91f3303b2f66ab6f61698d977d69b83d64",
-            [
-                'headers' => ['Content-Type' => 'application/json'],
-                'body' => json_encode($data)
-            ]
-        );
+            $response = $this->client->request(
+                'POST',
+                "https://api.pics.ee/v1/links/?access_token=20f07f91f3303b2f66ab6f61698d977d69b83d64",
+                [
+                    'headers' => ['Content-Type' => 'application/json'],
+                    'body' => json_encode($data)
+                ]
+            );
 
-        $contents = $response->getBody()->getContents();
-        $contents = json_decode($contents);
+            $contents = $response->getBody()->getContents();
+            $contents = json_decode($contents);
 
-        return $contents->data->picseeUrl;
+            return $contents->data->picseeUrl;
 
-        return $response;
+            return $response;
+        } catch (\Throwable $th) {
+            report($th);
+
+            return view('error',[
+                'message' => 'SORRY~這個頁面出錯了(☉д⊙)'
+            ]);
+        }
     }
 }
+

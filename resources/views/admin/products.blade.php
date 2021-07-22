@@ -3,6 +3,7 @@
 @section('content')
 {{-- Products Table --}}
     <div class="products-admin bg-light rounded mb-3 p-3">
+        <div class="text-center h2 p-1">商品管理</div>
         <table class="table">
             <thead>
                 <tr>
