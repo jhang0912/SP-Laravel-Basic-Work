@@ -28,7 +28,7 @@ class ShortUrlService
                 'POST',
                 "https://api.pics.ee/v1/links/?access_token=20f07f91f3303b2f66ab6f61698d977d69b83d64",
                 [
-                    'headers' => ['Content-Type' => 'pplication/json'],
+                    'headers' => ['Content-Type' => 'application/json'],
                     'body' => json_encode($data)
                 ]
             );
@@ -44,7 +44,7 @@ class ShortUrlService
             return $response;
         } catch (\Throwable $th) {
             report($th);
-            
+
             Log::channel('shortUrl')->error("error", ['message' => $th->getMessage()]);
 
             return view('error', [
