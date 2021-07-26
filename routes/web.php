@@ -38,6 +38,8 @@ Route::post('updateProductsPrice', 'App\Http\Controllers\AdminController@updateP
 /* 上傳商品圖片 */
 Route::post('uploadImage', 'App\Http\Controllers\AdminController@uploadImage');
 
+/* 刪除商品的 Redis */
+Route::get('deleteProductsRedis', 'App\Http\Controllers\AdminController@deleteProductsRedis');
 
 /* 會員註冊 */
 Route::post('register', 'App\Http\Controllers\MemberController@register')->name('register');
@@ -60,3 +62,9 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('signOut', 'App\Http\Controllers\MemberController@signOut'); //會員登出
     Route::post('member', 'App\Http\Controllers\MemberController@member'); //取得會員資料
 });
+
+/* 匯出商品清單 */
+Route::get('productsExport', 'App\Http\Controllers\ExportController@productsExport')->name('productsExport');
+
+/* 匯入商品清單 */
+Route::post('productsImport', 'App\Http\Controllers\ImportController@productsImport')->name('productsImport');

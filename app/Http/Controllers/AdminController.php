@@ -30,7 +30,7 @@ class AdminController extends Controller
     }
 
     /* 刪除商品的 Redis */
-    public function deleteProductsRedis()
+    static function deleteProductsRedis()
     {
         $count = Products::count();
         $pages = ceil($count / 10);
@@ -87,6 +87,8 @@ class AdminController extends Controller
             'file_name' => $file->getClientOriginalName(),
             'path' => $path
         ]);
+
+        $this->deleteProductsRedis();
 
         return redirect()->back();
     }
