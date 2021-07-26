@@ -5,6 +5,7 @@
     <div class="products-admin bg-light rounded mb-3 p-3">
         <div class="text-center h2 p-1">商品管理</div>
         <a class="btn btn-primary" href="{{ route('productsExport') }}">匯出商品清單</a>
+        <a class="btn btn-primary" href="{{ route('productsMultipleExport') }}">匯出商品清單(分類)</a>
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#import">匯入商品清單</button>
         <table class="table">
             <thead>

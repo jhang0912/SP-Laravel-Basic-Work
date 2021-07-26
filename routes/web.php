@@ -66,5 +66,8 @@ Route::group(['middleware' => 'auth:api'], function () {
 /* 匯出商品清單 */
 Route::get('productsExport', 'App\Http\Controllers\ExportController@productsExport')->name('productsExport');
 
+/* 匯出商品清單(分類) */
+Route::get('productsMultipleExport', 'App\Http\Controllers\ExportController@productsMultipleExport')->name('productsMultipleExport');
+
 /* 匯入商品清單 */
 Route::post('productsImport', 'App\Http\Controllers\ImportController@productsImport')->name('productsImport');
