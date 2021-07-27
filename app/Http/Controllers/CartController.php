@@ -17,11 +17,11 @@ class CartController extends Controller
 
         $check_quantity = Products::checkProductQuantity($request);
         if ($check_quantity == false) {
-            return response('您選購的商品庫存不足，請重新選購，謝謝');
+            return response('您選購的商品庫存不足，請重新選購，謝謝', 400);
         }
 
         $cart_item = Cart_items::createCartItem($cart, $request);
-        return response($cart_item);
+        return response($cart_item, 200);
     }
 
     /* 取得購物車資料 */
@@ -30,7 +30,7 @@ class CartController extends Controller
         $member = $request->user();
         $cart = $member->carts()->with('cart_items.products')->get();
 
-        return response($cart);
+        return response($cart, 200);
     }
 
     /* 編輯購物車商品資料(修改數量) */
@@ -42,15 +42,15 @@ class CartController extends Controller
 
         $check_quantity = Products::checkProductQuantity($request);
         if ($check_quantity == false) {
-            return response('您選購的商品庫存不足，請重新選購，謝謝');
+            return response('您選購的商品庫存不足，請重新選購，謝謝', 400);
         } else {
             $edit_result = Cart_items::editCartItemQuantity($cart_id, $request);
         }
 
         if ($edit_result) {
-            return response('商品數量編輯成功！！');
+            return response('商品數量編輯成功！！', 200);
         } else {
-            return response('商品數量編輯失敗！！');
+            return response('商品數量編輯失敗！！', 200);
         }
     }
 
@@ -64,9 +64,9 @@ class CartController extends Controller
         $delete_result = Cart_items::deleteCartItem($cart_id, $request);
 
         if ($delete_result) {
-            return response('購物車商品刪除成功！！');
+            return response('購物車商品刪除成功！！', 200);
         } else {
-            return response('購物車商品刪除失敗！！');
+            return response('購物車商品刪除失敗！！', 200);
         }
     }
 
@@ -81,16 +81,16 @@ class CartController extends Controller
                 $order_quantity = $cart_item->quantity;
 
                 if ($order_quantity > $product_quantity) {
-                    return response('商品「' . $cart_item->products->cht_name . '」庫存不足，請重新選購，謝謝');
+                    return response('商品「' . $cart_item->products->cht_name . '」庫存不足，請重新選購，謝謝', 400);
                 }
             }
-        }else{
-            return response('親愛的會員，您的購物車尚未建立');
+        } else {
+            return response('親愛的會員，您的購物車尚未建立', 400);
         }
 
         $checkOut_result = Carts::checkOutCart($cart);
 
-        return response('結帳成功！！您的訂單編號為「' . $cart->id . '」，可至會員中心查詢訂單處理進度，謝謝！！');
+        return response('結帳成功！！您的訂單編號為「' . $cart->id . '」，可至會員中心查詢訂單處理進度，謝謝！！', 200);
     }
 
     /* 取得已結帳訂單資料 */
@@ -99,7 +99,6 @@ class CartController extends Controller
         $member = $request->user();
         $cart = $member->carts()->where('checked_out', 1)->with('cart_items.products')->get();
 
-        return response($cart);
+        return response($cart, 200);
     }
-
 }
