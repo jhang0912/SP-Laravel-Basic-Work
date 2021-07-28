@@ -14,17 +14,15 @@ class CartControllerTest extends TestCase
     use RefreshDatabase;
 
     protected $testUser;
+    protected $testProduct;
 
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->testUser = User::create([
-            'name' => 'test_name',
-            'email' => 'test_email@gmail.com',
-            'password' => 'test_password',
-            'level' => 0
-        ]);
+        $this->testUser = User::factory()->create();
+
+        $this->testProduct = Products::factory()->create();
 
         Passport::actingAs($this->testUser);
     }
@@ -35,23 +33,12 @@ class CartControllerTest extends TestCase
      */
     public function test_addProductsToCart()
     {
-
-        $testProduct = Products::create([
-            'cht_name' => 'test_cht_name',
-            'en_name' => 'test_en_name',
-            'mvp' => 0,
-            'content' => 'test_content',
-            'equipment' => 'test_equipment',
-            'price' => 100,
-            'quantity' => 100
-        ]);
-
         $response = $this->call(
             'post',
             'cart',
             [
-                'id' => $testProduct->id,
-                'quantity' => 101
+                'id' => $this->testProduct->id,
+                'quantity' => rand(1, 100)
             ]
         );
 
@@ -60,6 +47,67 @@ class CartControllerTest extends TestCase
 
     public function test_getCart()
     {
-        
+        $this->test_addProductsToCart();
+
+        $response = $this->call(
+            'post',
+            'getCart'
+        );
+
+        $response->assertStatus(200);
+    }
+
+    public function test_editCart()
+    {
+        $this->test_addProductsToCart();
+
+        $response = $this->call(
+            'post',
+            'editCart',
+            [
+                'id' => $this->testProduct->id,
+                'quantity' => rand(1, 100)
+            ]
+        );
+
+        $response->assertStatus(200);
+    }
+
+    public function test_deleteCart()
+    {
+        $this->test_addProductsToCart();
+
+        $response = $this->call(
+            'post',
+            'deleteCart',
+            [
+                'id' => $this->testProduct->id
+            ]
+        );
+
+        $response->assertStatus(200);
+    }
+
+    public function test_checkOutCart()
+    {
+        $this->test_addProductsToCart();
+
+        $response = $this->call(
+            'post',
+            'checkOutCart'
+        );
+
+        $response->assertStatus(200);
+    }
+
+    public function test_getCheckedOutCart()
+    {
+        $this->test_addProductsToCart();
+        $this->test_checkOutCart();
+
+        $response = $this->call(
+            'post',
+            'getCheckedOutCart'
+        );
     }
 }

@@ -24,13 +24,17 @@ class CartController extends Controller
         return response($cart_item, 200);
     }
 
-    /* 取得購物車資料 */
+    /* 取得未結帳購物車資料 */
     public function getCart(Request $request)
     {
         $member = $request->user();
-        $cart = $member->carts()->with('cart_items.products')->get();
+        $cart = $member->carts()->where('checked_out', 0)->with('cart_items.products')->get();
 
-        return response($cart, 200);
+        if ($cart->isEmpty()) {
+            return response('您尚未建立購物車', 400);
+        } else {
+            return response($cart, 200);
+        }
     }
 
     /* 編輯購物車商品資料(修改數量) */
@@ -50,7 +54,7 @@ class CartController extends Controller
         if ($edit_result) {
             return response('商品數量編輯成功！！', 200);
         } else {
-            return response('商品數量編輯失敗！！', 200);
+            return response('商品數量編輯失敗！！', 500);
         }
     }
 
@@ -66,7 +70,7 @@ class CartController extends Controller
         if ($delete_result) {
             return response('購物車商品刪除成功！！', 200);
         } else {
-            return response('購物車商品刪除失敗！！', 200);
+            return response('購物車商品刪除失敗！！', 400);
         }
     }
 
