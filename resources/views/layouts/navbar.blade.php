@@ -5,23 +5,23 @@
         <div class="">
             <div class="d-flex justify-content-center">
                 <div class="">
-                    <a class="nav-link" href="{{ route('home') }}" title="商店首頁"><i
+                    <a class="nav-link" href="{{ route('home') }}" title="商店首頁" dusk="home-link"><i
                             class="fas fa-store h4 text-white m-0"></i></a>
                 </div>
                 <div class="">
-                    <a class="nav-link" href="{{ route('shareShortUrl') }}" title="分享連結"><i
+                    <a class="nav-link" href="{{ route('shareShortUrl') }}" title="分享連結" dusk="share-short-url-link"><i
                             class="fas fa-share h4 text-white m-0"></i></a>
                 </div>
                 <div class="">
-                    <a class="nav-link" href="{{ route('notification') }}" title="通知"><i
+                    <a class="nav-link" href="{{ route('notification') }}" title="通知" dusk="notification-link"><i
                             class="fas fa-bell h4 text-white m-0"></i></a>
                 </div>
                 <div class="">
-                    <a class="nav-link" href="{{ route('admin') }}" title="後台管理"><i
+                    <a class="nav-link" href="{{ route('admin') }}" title="後台管理" dusk="admin-link"><i
                             class="fas fa-toolbox h4 text-white m-0"></i></a>
                 </div>
                 <div class="">
-                    <a class="nav-link" href="{{ route('order') }}" title="訂單管理"><i
+                    <a class="nav-link" href="{{ route('order') }}" title="訂單管理" dusk="order-link"><i
                             class="fas fa-list h4 text-white m-0"></i></a>
                 </div>
             </div>

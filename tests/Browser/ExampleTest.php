@@ -34,7 +34,19 @@ class ExampleTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/home')
-                    ->assertSee('Ragnarok Online Card Store');
+                    ->assertSee('Ragnarok Online Card Store')
+                    ->pause(1000)
+                    ->click('@home-link')
+                    ->pause(1000)
+                    ->click('@share-short-url-link')
+                    ->pause(1000)
+                    ->click('@notification-link')
+                    ->pause(1000)
+                    ->click('@admin-link')
+                    ->pause(1000)
+                    ->click('@order-link')
+                    ->pause(1000)
+                    ;
         });
 
         eval(\Psy\sh());
