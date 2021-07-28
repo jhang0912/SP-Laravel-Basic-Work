@@ -50,10 +50,10 @@
             @for ($i = 1; $i <= $pages; $i++)
                 @if ($i != $currentPage) <a class="text-decoration-none btn btn-lg
                 btn-outline-primary" href="admin?page={{ $i }}">
-                <div class="d-inline">{{ $i }}</div>
+                <div class="d-inline" dusk="page_{{ $i }}">{{ $i }}</div>
                 </a>
             @else
-                <div class="d-inline btn btn-lg btn-primary">{{ $i }}</div> @endif
+                <div class="d-inline btn btn-lg btn-primary" dusk="page_{{ $i }}">{{ $i }}</div> @endif
             @endfor
         </div>
     </div>

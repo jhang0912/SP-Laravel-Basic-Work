@@ -21,7 +21,8 @@ class ExampleTest extends DuskTestCase
         return RemoteWebDriver::create(
             'http://localhost:9515',
             DesiredCapabilities::chrome()->setCapability(
-                ChromeOptions::CAPABILITY, $options
+                ChromeOptions::CAPABILITY,
+                $options
             )
         );
     }
@@ -33,22 +34,33 @@ class ExampleTest extends DuskTestCase
     public function testBasicExample()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/home')
-                    ->assertSee('Ragnarok Online Card Store')
-                    ->pause(1000)
-                    ->click('@home-link')
-                    ->pause(1000)
-                    ->click('@share-short-url-link')
-                    ->pause(1000)
-                    ->click('@notification-link')
-                    ->pause(1000)
-                    ->click('@admin-link')
-                    ->pause(1000)
-                    ->click('@order-link')
-                    ->pause(1000)
-                    ;
+            $browser->maximize()
+                ->visit('/home')
+                ->assertSee('Ragnarok Online Card Store')
+                ->pause(1000)
+                ->click('@share-short-url-link')
+                ->pause(1000)
+                ->click('@copy-button')
+                ->pause(1000)
+                ->acceptDialog()
+                ->pause(1000)
+                ->click('@notification-link')
+                ->pause(1000)
+                ->click('@new-notification_0')
+                ->waitFor('@readed-notification')
+                ->pause(1000)
+                ->click('@admin-link')
+                ->pause(1000)
+                ->scrollIntoView('@page_2')
+                ->pause(1000)
+                ->click('@page_2')
+                ->pause(1000)
+                ->click('@order-link')
+                ->pause(1000)
+                ->click('@order_0')
+                ->waitFor('@order_content_0')
+                ->pause(1000);
+            eval(\Psy\sh());
         });
-
-        eval(\Psy\sh());
     }
 }

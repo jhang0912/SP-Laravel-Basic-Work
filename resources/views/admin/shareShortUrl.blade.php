@@ -5,7 +5,7 @@
         <div class="text-center h3">分享</div>
         <div class="input-group">
             <input id="short-url" class="short-url form-control" type="text" value="{{ $url }}" readonly>
-            <button class="copy-url btn btn-primary">複製</button>
+            <button class="copy-url btn btn-primary" dusk="copy-button">複製</button>
         </div>
     </div>
 

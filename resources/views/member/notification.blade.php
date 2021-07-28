@@ -5,13 +5,13 @@
         <div class="text-center h2 p-1">通知</div>
         <div class="text-center h6">親愛的 {{ $member->name }} 先生/小姐，您好</div>
         <ul class="list-group">
-            @foreach ($notifications as $notification)
+            @foreach ($notifications as $key => $notification)
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     @if ($notification->read_at == null)
                         <button class="new-notification btn btn-sm btn-danger rounded"
-                            data-id="{{ $notification->id }}">new</button>
+                            data-id="{{ $notification->id }}" dusk="new-notification_{{ $key }}">new</button>
                     @else
-                        <button class="readed-notification btn btn-sm btn-success rounded">readed</button>
+                        <button class="readed-notification btn btn-sm btn-success rounded" dusk="readed-notification">readed</button>
                     @endif
                     <div class="ms-2 me-auto">
                         <div class="fw-bold">{{ $notification->data['message'] }}</div>

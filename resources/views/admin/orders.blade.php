@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($orders as $order)
+                @foreach ($orders as $key => $order)
                     <tr>
                         <td>{{ $order->id }}</td>
                         <td>{{ $order->user_id }}</td>
@@ -31,7 +31,7 @@
                         </td>
                         <td>
                             <button type="button" class="update_data btn btn-primary" data-id="{{ $order->id }}"
-                                data-bs-toggle="modal" data-bs-target="#order_{{ $order->id }}">
+                                data-bs-toggle="modal" data-bs-target="#order_{{ $order->id }}" dusk="order_{{ $key }}">
                                 訂單資料
                             </button>
                             @if ($order->deliveried == false)
@@ -55,8 +55,8 @@
     </div>
 
     {{-- Modal --}}
-    @foreach ($orders as $order)
-        <div class="modal fade" id="order_{{ $order->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    @foreach ($orders as $key => $order)
+        <div class="modal fade" id="order_{{ $order->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" dusk="order_content_{{ $key }}">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
