@@ -6,7 +6,7 @@
         <div class="text-center h2 p-1">商品管理</div>
         <a class="btn btn-primary" href="{{ route('productsExport') }}">匯出商品清單</a>
         <a class="btn btn-primary" href="{{ route('productsMultipleExport') }}">匯出商品清單(分類)</a>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#import">匯入商品清單</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#import" dusk="import-product">匯入商品清單</button>
         <table class="table">
             <thead>
                 <tr>
@@ -23,8 +23,8 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($products as $product)
-                    <tr>
+                @foreach ($products as $key => $product)
+                    <tr dusk="product_{{ $product->en_name }}">
                         <th>{{ $product->id }}</th>
                         <td><img class="product-image" src="@if (isset($product->image)) {{ asset($product->image) }} @endif">
                         </td>
@@ -37,7 +37,7 @@
                         <td>{{ $product->quantity }}</td>
                         <td class="">
                             <button type="button" class="upload_image btn btn-primary" data-id="{{ $product->id }}"
-                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                data-bs-toggle="modal" data-bs-target="#exampleModal" dusk="{{ $product->en_name }}-upload-image">
                                 上傳圖片
                             </button>
                             <button class="upload_content btn btn-success">編輯資料</button>
@@ -70,7 +70,7 @@
                     <form action="uploadImage" method="post" enctype="multipart/form-data">
                         <input type="file" name="product_image" id="product_image">
                         <input type="hidden" name="product_id" id="product_id">
-                        <input type="submit" class="btn btn-primary float-end" value="送出">
+                        <input type="submit" class="btn btn-primary float-end" value="送出" dusk="upload-image-submit">
                     </form>
                 </div>
             </div>
@@ -78,7 +78,7 @@
     </div>
 
     {{-- Import File Modal --}}
-    <div class="modal fade" id="import" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="import" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" dusk="import-file">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -88,7 +88,7 @@
                 <div class="modal-body">
                     <form action="{{ route('productsImport') }}" method="post" enctype="multipart/form-data">
                         <input type="file" name="products_import" id="products_import">
-                        <input type="submit" class="btn btn-primary float-end" value="送出">
+                        <input type="submit" class="btn btn-primary float-end" value="送出" dusk="products-import-submit">
                     </form>
                 </div>
             </div>

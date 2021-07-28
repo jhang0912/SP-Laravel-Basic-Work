@@ -2,6 +2,7 @@
 
 namespace Tests\Browser;
 
+use App\Models\Products;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
@@ -33,29 +34,45 @@ class ExampleTest extends DuskTestCase
      */
     public function testBasicExample()
     {
+
         $this->browse(function (Browser $browser) {
             $browser->maximize()
-                ->visit('/home')
+                ->visit('/home') //首頁
                 ->assertSee('Ragnarok Online Card Store')
                 ->pause(1000)
-                ->click('@share-short-url-link')
+                ->click('@share-short-url-link')//分享網址
                 ->pause(1000)
                 ->click('@copy-button')
                 ->pause(1000)
                 ->acceptDialog()
                 ->pause(1000)
-                ->click('@notification-link')
+                ->click('@notification-link')//通知
                 ->pause(1000)
                 ->click('@new-notification_0')
                 ->waitFor('@readed-notification')
                 ->pause(1000)
-                ->click('@admin-link')
+                ->click('@admin-link') //商品管理
+                ->pause(1000)
+                ->click('@import-product')
+                ->pause(1000)
+                ->waitFor('@import-file')
+                ->attach('products_import', 'D:/下載2/products_import.xlsx')
+                ->pause(1000)
+                ->click('@products-import-submit')
                 ->pause(1000)
                 ->scrollIntoView('@page_2')
                 ->pause(1000)
                 ->click('@page_2')
                 ->pause(1000)
-                ->click('@order-link')
+                ->scrollIntoView("@product_Baphomet")
+                ->pause(1000)
+                ->click('@Baphomet-upload-image')
+                ->pause(1000)
+                ->attach('product_image', 'C:/Users/USER/Desktop/ro_card/Baphomet_Card.png')
+                ->click('@upload-image-submit')
+                ->scrollIntoView("@product_Baphomet")
+                ->pause(1000)
+                ->click('@order-link') //Components訂單管理
                 ->pause(1000)
                 ->click('@order_0')
                 ->waitFor('@order_content_0')
