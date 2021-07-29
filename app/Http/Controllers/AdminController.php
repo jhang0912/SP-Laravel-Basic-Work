@@ -58,13 +58,8 @@ class AdminController extends Controller
     /* 分享本網站短網址 */
     public function shareShortUrl()
     {
-        if (Redis::get('shortUrl') == null) {
-            $service = new ShortUrlService();
-            $url = $service->createShortUrl();
-            Redis::set('shortUrl', $url);
-        }
-
-        $url = Redis::get('shortUrl');
+        $service = new ShortUrlService();
+        $url = $service->createShortUrl();
 
         return view('admin.shareShortUrl', [
             'url' => $url

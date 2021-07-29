@@ -12,8 +12,19 @@
 這是一份使用 PHP 框架 Laravel 進行撰寫的初級作品，以「[Laravel Beginner Work](https://github.com/jhang0912/SideProject-Laravel-Beginner-Work)」專案為基礎，逐步學習 Laravel 框架的各種技術，並且以電商平台的各種功能為目標去實作，最後再搭配前端元件 View 顯示畫面，使用的技術元件與專案架構如下:
 
 ## Demo
-### [Laravel Basic Work Demo]()
-
+### [Laravel Basic Work Demo 1](https://youtu.be/De1TCQnbdXw)
+- Queue
+- Observer
+- Notification
+- Redis
+### [Laravel Basic Work Demo 2](https://youtu.be/RQU2Da7p0ng)
+- Picsee API
+- Log
+- Error Exception
+### [Laravel Basic Work Demo 3](https://youtu.be/pxvfy2Tgzdg)
+- Factory
+- Testing
+- Dusk
 ## Routes
 ### User Interface
 - GET：(shareShortUrl：AdminController@shareShortUrl)->name(shareShortUrl)
@@ -67,6 +78,17 @@
 - 取得商品資料並回傳 view(admin.products)　-admin-
 
 ## Views
+- 錯誤顯示 　-error-
+- 首頁　-home-
+### admin
+- 訂單管理　-orders-
+- 商品管理　-products-
+- 分享網址　-shareShortUrl-
+### layouts
+- HTML網頁元件　-html-
+- 網頁頂部導覽列　-navbar-
+### member
+- 會員通知管理 -notification-
 
 ## Models
 ### Cart_items （use SoftDeletes）
