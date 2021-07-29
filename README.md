@@ -18,7 +18,7 @@
 - Notification
 - Redis
 ### [Laravel Basic Work Demo 2](https://youtu.be/RQU2Da7p0ng)
-- Picsee API
+- PicSee API
 - Log
 - Error Exception
 ### [Laravel Basic Work Demo 3](https://youtu.be/0RgnUIUxrlQ)
@@ -38,6 +38,7 @@
 - GET：(admin：ProductController@admin)->name(admin)
 ### Manage interface
 - POST：(updateProductsPrice：AdminController@updateProductsPrice)
+- POST：(deleteProductsRedis：AdminController@deleteProductsRedis)
 - POST：(uploadImage：AdminController@uploadImage)
 - POST：(register：MemberController@register)
 - POST：(readedNotification：MemberController@readedNotification)
@@ -52,6 +53,9 @@
     - POST：(checkOutCart：CartController@checkOutCart)
     - POST：(getCheckedOutCart：CartController@getCheckedOutCart)
 })
+- GET：(productsExport：ExportController@productsExport)->name(productsExport)
+- GET：(productsMultipleExport：ExportController@productsMultipleExport)->name(productsMultipleExport)
+- POST：(productsImport：ImportController@productsImport)->name(productsImport)
 
 ## Controllers
 ### Admin
